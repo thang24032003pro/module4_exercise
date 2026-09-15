@@ -45,3 +45,4 @@ Bai_tap/
    `http://localhost:8080/salary-calculator/`
 5. Nhập số giờ làm cho 3 ca (ví dụ: `8`, `7.5`, `4`) và chọn mức lương `30,000 VNĐ / giờ`.
 6. Bấm **"Tính Lương"** để xem kết quả chi tiết.
+

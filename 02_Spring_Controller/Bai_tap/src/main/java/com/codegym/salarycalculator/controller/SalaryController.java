@@ -35,3 +35,4 @@ public class SalaryController {
         return "result";
     }
 }
+
