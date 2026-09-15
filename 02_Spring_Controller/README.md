@@ -42,3 +42,4 @@ Dự án thực hành xây dựng ứng dụng web Java sử dụng **Spring MVC
 3. Deploy file WAR vào Apache Tomcat 10.1+ (copy vào thư mục `webapps/` của Tomcat hoặc cấu hình trên IDE).
 4. Truy cập ứng dụng tại:
    `http://localhost:8080/email-validate-maven/`
+
