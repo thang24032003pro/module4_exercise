@@ -1,12 +1,3 @@
-# Bài 1: Spring MVC Greeting
-
-## Mục tiêu
-- Tạo ứng dụng Spring MVC cơ bản
-- Cấu hình `DispatcherServlet`, `ViewResolver`
-- Hiển thị lời chào và nhận tham số `name` từ URL
-
-## Mã chính
-```java
 package com.codegym.springgreeting;
 
 import org.springframework.stereotype.Controller;
@@ -29,27 +20,3 @@ public class GreetingController {
         return "index";
     }
 }
-```
-
-```jsp
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Greeting</title>
-</head>
-<body>
-    <h1>${message}</h1>
-</body>
-</html>
-```
-
-## Chạy
-```bash
-gradle clean war
-```
-
-- `/greeting` => `Hello Spring MVC`
-- `/greeting?name=John` => `Hello: John`
-
-## Kết luận
-Dự án Spring MVC đã được tạo và build thành công bằng Gradle. File WAR sinh ra ở `build/libs/spring-greeting.war`.
