@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{layout :: head}"></head>
+<body>
+<h3>Product List</h3>
+<p><a th:href="@{/products/create}" class="btn">Add new product</a></p>
+
+<!-- Search Form -->
+<form th:action="@{/products}" method="GET" class="search-box">
+    <input type="text" name="search" th:value="${search}" placeholder="Search product by name..."/>
+    <button type="submit" class="btn">Search</button>
+    <a th:if="${search != null and !search.isEmpty()}" th:href="@{/products}" class="btn btn-secondary">Clear</a>
+</form>
+
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Price ($)</th>
+        <th>Description</th>
+        <th>Manufacturer</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row, stat : ${products}">
+        <td th:text="${stat.count}"></td>
+        <td th:text="${row.name}"></td>
+        <td th:text="${#numbers.formatDecimal(row.price, 1, 2)}"></td>
+        <td th:text="${row.description}"></td>
+        <td th:text="${row.manufacturer}"></td>
+        <td><a th:href="@{/products/{id}/edit(id=${row.id})}">Edit</a></td>
+        <td><a th:href="@{/products/{id}/delete(id=${row.id})}">Delete</a></td>
+        <td><a th:href="@{/products/{id}/view(id=${row.id})}">View</a></td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(products)}">
+        <td colspan="8" style="text-align: center; color: #888;">No products found.</td>
+    </tr>
+    </tbody>
+</table>
+
+<footer th:replace="~{layout :: footer}"></footer>
+</body>
+</html>
